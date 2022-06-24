@@ -1,5 +1,5 @@
 import axios from 'axios';
-    const baseUrl = 'http://kanban-app.test/api';
+    const baseUrl = 'https://dejannjezic.com/kanban/public/api';
 
     export async function getCard(id) {
         let card = {};
@@ -32,4 +32,4 @@ import axios from 'axios';
     }
 
 
-  
+

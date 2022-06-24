@@ -34,7 +34,10 @@ export default {
         this.$modal.show('column-add')
       },
       closedModal(){
-
+        getColumns().then(res => {
+          this.columns = res;
+          this.$forceUpdate();
+        });
       },
       columnDestroy(){
         getColumns().then(res => {

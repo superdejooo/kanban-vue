@@ -45,12 +45,12 @@ export default {
     closedModal(){
     },
     destroyColumn(id){
+      let self = this
         destroyColumn(id).then((res) => {
-            EventBus.$emit('columnDestroyed')
+          self.$emit('columnDestroy')
         })
     },
     log(evt) {
-
         if(evt.removed){
             return;
         }

@@ -1,5 +1,5 @@
 import axios from 'axios';
-    const baseUrl = 'http://kanban-app.test/api';
+const baseUrl = 'https://dejannjezic.com/kanban/public/api';
 
     export async function getColumns() {
         let columns = [];
@@ -18,4 +18,4 @@ import axios from 'axios';
         const response = await axios.delete(`${baseUrl}/columns/${id}`);
         return response;
     }
-  
+
