@@ -1,7 +1,7 @@
 <template>
   <div>
     <div id="wrapper">
-      <Column v-for="column in columns.data" :column="column" @columnDestroy="columnDestroy()"/>
+      <Column v-for="column in columns.data" :column="column" @columnDestroy="updateColumns()"  @destroyCard="updateColumns()" @createdCard="updateColumns()"/>
       <Modal @closedModal="closedModal"/>
       <button class="btn"  @click="openModal()"> Add column + </button>
     </div>
@@ -39,7 +39,7 @@ export default {
           this.$forceUpdate();
         });
       },
-      columnDestroy(){
+      updateColumns(){
         getColumns().then(res => {
           this.columns = res;
           this.$forceUpdate();

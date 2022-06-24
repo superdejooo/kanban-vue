@@ -1,7 +1,7 @@
 <template>
   <div class="card" @click="openModal(card.id)">
     <div>{{title}}</div>
-    <Modal :id="card.id" @closedModal="closedModal"/>
+    <Modal :id="card.id" @closedModal="closedModal()"  @destroyCard="destroyCard()"/>
   </div>
 </template>
 
@@ -36,7 +36,16 @@ export default {
         this.title = res.data.title;
         this.$forceUpdate();
       });
-    }
+    },
+    destroyColumn(id){
+      let self = this
+        destroyColumn(id).then((res) => {
+          self.$emit('columnDestroy')
+        })
+    },
+    destroyCard(id){
+        this.$emit('destroyCard')
+    },
   }
 }
 </script>

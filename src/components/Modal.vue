@@ -77,8 +77,9 @@ export default {
           this.$emit('closedModal')
         })
       }else if(this.parentColumnId){
+        let self = this
         createCard(params).then(res => {
-          this.$emit('closedModal')
+          self.$emit('createdCard')
         })
       }else{
         updateCard(cardId, params).then(res => {
@@ -87,7 +88,9 @@ export default {
       }
     },
     destroyCard (){
+      let self = this
       destroyCard(this.id).then(res => {
+          self.$emit('destroyCard')
       })
     }
   }
